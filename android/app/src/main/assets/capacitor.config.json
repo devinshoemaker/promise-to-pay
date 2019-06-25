@@ -1,0 +1,7 @@
+{
+  "appId": "com.github.devinshoemaker.promisetopay",
+  "appName": "Promise to Pay",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
