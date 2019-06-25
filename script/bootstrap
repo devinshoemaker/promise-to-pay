@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# script/bootstrap: Resolve all dependencies that the
+#                   application requires to run.
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+echo "==> Bootstrapping application..."
+
+if ! command -v "npm" >/dev/null 2>&1; then
+    echo "==> NPM must be installed. Aborting."
+    exit 1
+fi
+
+# Check if Ionic CLI is installed
+if ! command -v "ionic" >/dev/null 2>&1; then
+    echo "==> Installing Ionic CLI..."
+    npm install --global ionic
+fi
+
+# Check if Angular CLI is installed
+if ! command -v "ng" >/dev/null 2>&1; then
+    echo "==> Installing Angular CLI..."
+    npm install --global @angular/cli
+fi
+
+# Check if NPM dependencies have been installed
+if [[ ! -d "node_modules" ]]; then
+    echo "==> Installing NPM dependencies..."
+    npm install
+fi
+
+echo "==> Application bootstrapped."

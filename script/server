@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# script/server: Launch the application and any extra required processes
+#                locally.
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Store a local variable of the scripts current directory
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+${DIR}/bootstrap
+
+echo "==> Launching application..."
+ionic serve --lab

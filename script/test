@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# script/test: Run test suite for application. Optionally pass in a path to an
+#              individual test file to run a single test.
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Store a local variable of the scripts current directory
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+${DIR}/setup
+${DIR}/bootstrap
+
+echo "==> Running tests..."
+
+ng lint
+ng test --no-watch --code-coverage
+ng e2e --configuration=test
+
+echo "==> Tests complete."

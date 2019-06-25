@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# script/electron: Launch the application on Electron and any extra required processes
+#                  locally.
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Store a local variable of the scripts current directory
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+${DIR}/bootstrap
+
+if [[ ! -d "www" ]]; then
+    echo "==> Building project..."
+    ionic build
+fi
+
+echo "==> Copying Electron project files..."
+ionic capacitor copy electron
+
+if [[ ! -d "electron/node_modules" ]]; then
+    echo "==> Updating Electron dependencies..."
+    cd ${DIR}/../electron
+    npm install
+fi
+
+echo "==> Opening application in Electron..."
+cd ${DIR}/..
+ionic capacitor open electron

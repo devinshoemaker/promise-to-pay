@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# script/android: Launch the application on Android and any extra required processes
+#                 locally.
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Store a local variable of the scripts current directory
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+${DIR}/bootstrap
+
+if [[ ! -d "www" ]]; then
+    echo "==> Building project..."
+    ionic build
+fi
+
+if [[ ! -d "android/capacitor-cordova-android-plugins" ]]; then
+    echo "==> Updating Android dependencies..."
+    ionic capacitor update android
+fi
+
+echo "==> Copying Android project files..."
+ionic capacitor copy android
+
+echo "==> Opening application in Android Studio..."
+ionic capacitor open android
