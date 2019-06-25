@@ -1,5 +1,7 @@
 {
   "name": "Promise to Pay",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
