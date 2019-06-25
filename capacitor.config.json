@@ -1,5 +1,5 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "com.github.devinshoemaker.promisetopay",
   "appName": "Promise to Pay",
   "bundledWebRuntime": false,
   "npmClient": "npm",
