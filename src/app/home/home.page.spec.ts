@@ -24,4 +24,8 @@ describe('HomePage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have title', () => {
+    expect(fixture.debugElement.nativeElement.querySelector('ion-title').textContent).toContain('Promise to Pay');
+  });
 });

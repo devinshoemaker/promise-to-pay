@@ -5,6 +5,10 @@ export class AppPage {
     return browser.get('/');
   }
 
+  getTitle() {
+    return element(by.deepCss('app-root ion-title')).getText();
+  }
+
   getParagraphText() {
     return element(by.deepCss('app-root ion-content')).getText();
   }
