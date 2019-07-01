@@ -35,3 +35,6 @@ UserInterfaceState.xcuserstate
 
 cypress/screenshots
 cypress/videos
+
+.firebase/
+.firebaserc
