@@ -37,4 +37,12 @@ if [[ ! -d "node_modules" ]]; then
     npm install
 fi
 
+if [[ ! -f ".firebaserc" ]]; then
+    echo "==> .firebaserc not found. Enter Firebase project ID:"
+    read FIREBASE_PROJECT_ID
+    
+    echo "==> Generating .firebaserc..."
+    firebase target:apply hosting app "$FIREBASE_PROJECT_ID"
+fi
+
 echo "==> Application bootstrapped."
