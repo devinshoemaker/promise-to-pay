@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# script/deploy: Deploy application to hosting after
+#                successfully running test suite.
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Store a local variable of the scripts current directory
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+${DIR}/test
+
+echo "==> Deploying to Firebase..."
+
+ionic build --prod
+firebase deploy
+
+echo "==> Deployment complete."

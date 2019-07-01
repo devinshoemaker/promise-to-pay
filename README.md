@@ -10,6 +10,7 @@
 - [Usage](#usage)
 - [Test](#test)
 - [Updating](#updating)
+- [Deploy](#deploy)
 - [Maintainers](#maintainers)
 - [Contributing](#contributing)
 - [License](#license)
@@ -77,6 +78,12 @@ https://capacitor.ionicframework.com/docs/android/updating
 ### Electron
 
 https://capacitor.ionicframework.com/docs/electron/updating
+
+## Deploy
+
+```
+script/deploy
+```
 
 ## Maintainers
 
