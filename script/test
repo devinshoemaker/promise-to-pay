@@ -16,6 +16,6 @@ echo "==> Running tests..."
 
 ng lint
 ng test --no-watch --code-coverage
-ng e2e --configuration=test
+ng e2e --protractor-config=e2e/protractor-ci.conf.js
 
 echo "==> Tests complete."
