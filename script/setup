@@ -10,6 +10,8 @@ echo "==> Setting application back to initial state..."
 
 # Ionic
 rm -rf \
+    cypress/screenshots/ \
+    cypress/videos/ \
     node_modules/ \
     www/ \
 
