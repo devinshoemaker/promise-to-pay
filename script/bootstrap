@@ -25,6 +25,12 @@ if ! command -v "ng" >/dev/null 2>&1; then
     npm install --global @angular/cli
 fi
 
+# Check if Angular CLI is installed
+if ! command -v "firebase" >/dev/null 2>&1; then
+    echo "==> Installing Firebase CLI..."
+    npm install --global firebase-tools
+fi
+
 # Check if NPM dependencies have been installed
 if [[ ! -d "node_modules" ]]; then
     echo "==> Installing NPM dependencies..."
