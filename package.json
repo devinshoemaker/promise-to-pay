@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "concurrently \"cypress run\" --kill-others \"ng serve\" --success first"
+    "e2e": "concurrently \"cypress run\" --kill-others \"ng serve\" --success first",
+    "cypress:open": "concurrently \"cypress open\" --kill-others \"ng serve\" --success first"
   },
   "private": true,
   "dependencies": {
