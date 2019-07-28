@@ -1,5 +1,6 @@
 {
     "baseUrl": "http://localhost:8100",
+    "defaultCommandTimeout": 6000,
     "user": "CHANGEME",
     "pass": "CHANGEME"
 }
