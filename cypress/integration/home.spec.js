@@ -2,7 +2,7 @@
 
 context('Home Page', () => {
     beforeEach(() => {
-        cy.visit('/')
+        cy.loginWithEmail();
     });
 
     it('should have title', () => {
