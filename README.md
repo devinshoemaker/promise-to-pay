@@ -17,9 +17,15 @@
 
 ## Install
 
+### Bootstrap Application
+
 ```
 script/bootstrap
 ```
+
+#### Environment Configs
+
+You must update `src/environments/environment*.ts` and `cypress.json` with your own Firebase project configs in order to run or test this application.
 
 ## Usage
 

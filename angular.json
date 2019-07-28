@@ -40,6 +40,9 @@
               },
               {
                 "input": "src/app/app.scss"
+              },
+              {
+                "input": "./node_modules/firebaseui/dist/firebaseui.css"
               }
             ],
             "scripts": [],
