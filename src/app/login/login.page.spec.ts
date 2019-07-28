@@ -19,11 +19,10 @@ describe('LoginPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginPage ],
+      declarations: [LoginPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      providers: [ { provide: AngularFireAuth, useValue: angularFireAuthStub } ]
-    })
-    .compileComponents();
+      providers: [{ provide: AngularFireAuth, useValue: angularFireAuthStub }]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

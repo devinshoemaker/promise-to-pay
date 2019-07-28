@@ -9,11 +9,10 @@ import * as firebaseui from 'firebaseui';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  styleUrls: ['./login.page.scss']
 })
 export class LoginPage implements OnInit {
-
-  constructor(private afAuth: AngularFireAuth) { }
+  constructor(private afAuth: AngularFireAuth) {}
 
   ngOnInit() {
     // FirebaseUI config.
@@ -31,5 +30,4 @@ export class LoginPage implements OnInit {
     // // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig);
   }
-
 }

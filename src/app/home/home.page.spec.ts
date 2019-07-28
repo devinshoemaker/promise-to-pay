@@ -9,10 +9,9 @@ describe('HomePage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomePage ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
-      .compileComponents();
+      declarations: [HomePage],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -26,6 +25,8 @@ describe('HomePage', () => {
   });
 
   it('should have title', () => {
-    expect(fixture.debugElement.nativeElement.querySelector('ion-title').textContent).toContain('Promise to Pay');
+    expect(
+      fixture.debugElement.nativeElement.querySelector('ion-title').textContent
+    ).toContain('Promise to Pay');
   });
 });
