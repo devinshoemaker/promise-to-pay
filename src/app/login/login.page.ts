@@ -18,10 +18,7 @@ export class LoginPage implements OnInit {
     // FirebaseUI config.
     const uiConfig = {
       signInSuccessUrl: '/home',
-      signInOptions: [
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
-      ]
+      signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID]
     };
 
     // Initialize the FirebaseUI Widget using Firebase.
