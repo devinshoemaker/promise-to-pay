@@ -19,7 +19,6 @@ export class LoginPage implements OnInit {
     const uiConfig = {
       signInSuccessUrl: '/home',
       signInOptions: [
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
         firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
       ]

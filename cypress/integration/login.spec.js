@@ -9,12 +9,6 @@ context('Login Page', () => {
         cy.get('ion-title').should('contain', 'Login');
     });
 
-    it('should have Google sign in button', () => {
-        let googleSignInButton = cy.get('.firebaseui-idp-google');
-        googleSignInButton.should('contain', 'Sign in with Google');
-        googleSignInButton.click();
-    });
-
     it('should have email sign in button', () => {
         let emailSignInButton = cy.get('.firebaseui-idp-password');
         emailSignInButton.should('contain', 'Sign in with email');
