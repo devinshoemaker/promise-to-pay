@@ -3,12 +3,27 @@
     <ion-title>
       Promise to Pay
     </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button
+        id="log-out-button"
+        class="log-out-button"
+        (click)="presentLogOutAlert()"
+      >
+        Log Out
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
     The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+    <p>
+      If you get lost, the
+      <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">
+        docs
+      </a>
+      will be your guide.
+    </p>
   </div>
 </ion-content>
