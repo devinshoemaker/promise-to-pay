@@ -11,10 +11,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 ${DIR}/bootstrap
 
-if [[ ! -d "www" ]]; then
-    echo "==> Building project..."
-    ionic build
-fi
+echo "==> Building project..."
+ionic build
 
 if [[ ! -d "android/capacitor-cordova-android-plugins" ]]; then
     echo "==> Updating Android dependencies..."
