@@ -1,19 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { Observable, Subscription } from 'rxjs';
+import { User } from 'firebase';
+
+import { ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss']
 })
-export class HomePage {
+export class HomePage implements OnInit {
+  public contacts$: Observable<any>;
+  private userSubscription: Subscription;
+
   constructor(
     private afAuth: AngularFireAuth,
     private alertController: AlertController,
-    private router: Router
+    private router: Router,
+    private contactService: ContactService
   ) {}
+
+  ngOnInit() {
+    this.userSubscription = this.afAuth.user.subscribe((user: User) => {
+      this.contacts$ = this.contactService.getContactsByUserId(user.uid);
+    });
+  }
+
+  ngOnDestroy() {
+    this.userSubscription.unsubscribe();
+  }
 
   public addTransaction(): void {
     this.router.navigate(['/add-transaction']);
