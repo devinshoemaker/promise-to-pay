@@ -4,10 +4,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, AlertController } from '@ionic/angular';
 import { of } from 'rxjs';
 
 import { AddTransactionPage } from './add-transaction.page';
+import { ContactService } from '../services/contact.service';
 
 describe('AddTransactionPage', () => {
   let component: AddTransactionPage;
@@ -17,11 +18,7 @@ describe('AddTransactionPage', () => {
     const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
     const angularFirestoreStub = {};
     const angularFireAuthStub = {
-      user: {
-        subscribe() {
-          of({ userId: 'user-id' });
-        }
-      }
+      user: of({ uid: 'user-id' })
     };
 
     TestBed.configureTestingModule({
@@ -44,5 +41,9 @@ describe('AddTransactionPage', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should get contacts on init', () => {
+    // expect(component.userId)
   });
 });
