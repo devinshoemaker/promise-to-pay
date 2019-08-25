@@ -15,6 +15,10 @@ export class HomePage {
     private router: Router
   ) {}
 
+  public addTransaction(): void {
+    this.router.navigate(['/add-transaction']);
+  }
+
   public async presentLogOutAlert(): Promise<void> {
     const alert = await this.alertController.create({
       header: 'Alert',

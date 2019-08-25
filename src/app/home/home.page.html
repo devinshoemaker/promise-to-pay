@@ -4,13 +4,7 @@
       Promise to Pay
     </ion-title>
     <ion-buttons slot="primary">
-      <ion-button
-        id="log-out-button"
-        class="log-out-button"
-        (click)="presentLogOutAlert()"
-      >
-        Log Out
-      </ion-button>
+      <ion-button id="log-out-button" class="log-out-button" (click)="presentLogOutAlert()">Log Out</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -27,3 +21,9 @@
     </p>
   </div>
 </ion-content>
+
+<ion-fab vertical="bottom" horizontal="end">
+  <ion-fab-button (click)="addTransaction()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
