@@ -11,6 +11,7 @@ import { User } from 'firebase';
 import { ContactService } from '../services/contact.service';
 import { DebtService } from '../services/debt.service';
 import { TransactionService } from '../services/transaction.service';
+import { Contact } from '../models/contact.model';
 
 @Component({
   selector: 'app-add-transaction',
@@ -18,13 +19,12 @@ import { TransactionService } from '../services/transaction.service';
   styleUrls: ['./add-transaction.page.scss']
 })
 export class AddTransactionPage implements OnInit {
-  //TODO add typing
-  public contacts$: Observable<any>;
+  public contacts$: Observable<Contact[]>;
   private userSubscription: Subscription;
 
   //TODO add typing
   private newContactId: string;
-  private newContact: any = {};
+  private newContact: Contact;
   private userId: string;
 
   public transactionForm: FormGroup = new FormGroup({
@@ -112,6 +112,6 @@ export class AddTransactionPage implements OnInit {
   }
 
   private selectedContactIsNew(): boolean {
-    return this.transactionForm.get('debtId').value === this.newContact.debtId;
+    return this.newContact && this.transactionForm.get('debtId').value === this.newContact.debtId;
   }
 }
