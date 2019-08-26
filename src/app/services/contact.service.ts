@@ -12,18 +12,12 @@ export class ContactService {
   constructor(private afs: AngularFirestore) {}
 
   public getContactsByUserId(userId: string): Observable<Contact[]> {
-    let contactCollection: AngularFirestoreCollection<Contact> = this.afs.collection('contacts', ref => ref.where('userId', '==', userId));
+    return this.afs.collection('contacts', ref => ref.where('userId', '==', userId)).valueChanges() as Observable<Contact[]>;
+    
+    // return <Observable<Contact[]>> this.afs.collection('contacts', ref => ref.where('userId', '==', userId)).valueChanges();
 
-    return contactCollection.snapshotChanges().pipe(
-      map(actions =>
-        actions.map(a => {
-          let data: Contact = a.payload.doc.data();
-          data.id = a.payload.doc.id;
-
-          return data;
-        })
-      )
-    );
+    // let contactCollection = this.afs.collection('contacts', ref => ref.where('userId', '==', userId));
+    // return contactCollection.valueChanges();
   }
 
   public createContact(id: string, contact: Contact) {
