@@ -5,29 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="transactionForm">
-    <ion-item>
-      <ion-label position="floating">Title</ion-label>
-      <ion-input type="text" formControlName="title"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Contact</ion-label>
-      <ion-select interface="popover" formControlName="debtId" (ionChange)="checkContactSelect()">
-        <ion-select-option value="new-contact">
-          New contact
-        </ion-select-option>
-
-        <ion-select-option *ngIf="newContactId" value="{{ newContact.debtId }}">
-          {{ newContact.name }}
-        </ion-select-option>
-
-        <ion-select-option *ngFor="let contact of contacts$ | async" value="{{ contact.debtId }}">
-          {{ contact.name }}
-        </ion-select-option>
-      </ion-select>
-    </ion-item>
-  </form>
+  <app-transaction-form [userId]="(user$ | async)?.uid" [contacts]="contacts$ | async"> </app-transaction-form>
 </ion-content>
 
 <ion-fab vertical="bottom" horizontal="end">

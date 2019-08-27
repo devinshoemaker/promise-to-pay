@@ -12,6 +12,7 @@ import { ContactService } from '../services/contact.service';
 import { DebtService } from '../services/debt.service';
 import { TransactionService } from '../services/transaction.service';
 import { Contact } from '../models/contact.model';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-transaction',
@@ -26,6 +27,8 @@ export class AddTransactionPage implements OnInit {
   private newContactId: string;
   private newContact: Contact;
   private userId: string;
+
+  public user$: Observable<User>;
 
   public transactionForm: FormGroup = new FormGroup({
     title: new FormControl('', Validators.required),
@@ -44,6 +47,11 @@ export class AddTransactionPage implements OnInit {
 
   ngOnInit(): void {
     this.getContacts();
+    this.user$ = this.afAuth.user.pipe(
+      tap((user: User) => {
+        this.contacts$ = this.contactService.getContactsByUserId(user.uid);
+      })
+    );
   }
 
   ngOnDestroy(): void {
